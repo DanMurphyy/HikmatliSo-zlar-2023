@@ -729,10 +729,6 @@ object QuoteManager {
         ),
         Quotes(
             author = "Jalaluddin Rumi",
-            quote = "Sevgidan achchiq shiringa aylanur. Sevgidan mislar oltinga aylanur. Sevgidan loyqa cho‘kindi suvlar tiniq, sof holga kelur. Sevgidan dardlar, shifo topur. Sevgidan o‘liklar tirilur, podshohlar qul bo‘lur. Bu sevgi ilm-ma’rifatning natijasidir. Bo‘lar bo‘lmas narsalarga g‘arq bo‘lgan inson qanday qilib bunday taxtga o‘tirishi mumkin? Nuqsonli ilm qanday qilib haqiqiy sevgini yaratishi mumkin? Ha, sevgini yarata olar, u ham jonsiz narsalar sevgisidir. Nuqsonli ilm sohibi jonsiz narsada istaganining rangini ko‘rganida, hushtak chalinsa ham sevgilisining ovozini eshitgandek bo‘ladi."
-        ),
-        Quotes(
-            author = "Jalaluddin Rumi",
             quote = "Odobidan mahrum bo‘lgan Allohning lutfidan ham mahrum bo‘lur."
         ),
         Quotes(
