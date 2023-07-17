@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Hikmatli So\'zlar 2023</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sample_word">Here will be the sample of wise words</string>
+    <string name="author_of_the_word">Author of the quote</string>
+</resources>
