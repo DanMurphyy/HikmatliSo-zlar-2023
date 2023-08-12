@@ -2,12 +2,14 @@ package com.hfad.a1001hikmatlisoz
 
 import android.app.AlarmManager
 import android.app.PendingIntent
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +34,7 @@ import java.util.*
 class OnlyFragment : Fragment() {
     private var _binding: FragmentOnlyBinding? = null
     private val binding get() = _binding!!
-    private lateinit var mInterstitialAd: InterstitialAd
+    private var mInterstitialAd: InterstitialAd? = null
 
     private val adapter: OnlyAdapter by lazy { OnlyAdapter() }
     private val mQuoteViewModel: QuoteViewModel by viewModels()
@@ -51,24 +53,33 @@ class OnlyFragment : Fragment() {
         }
 
         binding.share.setOnClickListener {
-            mInterstitialAd.show(requireActivity())
+            if (mInterstitialAd != null) {
+                mInterstitialAd?.show(requireActivity())
+            } else {
+                Log.d("TAG", "The interstitial ad wasn't ready yet.")
+            }
             generateLayoutPhoto()
-            shareLayoutPhoto("Ilova uchun havola:")
+            shareLayoutPhoto("Ilova uchun havola: \n" +
+                    "https://play.google.com/store/apps/details?id=com.hfad.a1001hikmatlisoz")
         }
         MobileAds.initialize(requireContext())
-        val adRequest = AdRequest.Builder().build()
+        val adInRequest = AdRequest.Builder().build()
+
         InterstitialAd.load(requireContext(),
-            "ca-app-pub-3940256099942544/1033173712",
-            adRequest,
+            "ca-app-pub-8558811277281829/9611254064",
+            adInRequest,
             object : InterstitialAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
-                    mInterstitialAd = null!!
+                    Log.d(TAG, adError.toString())
+                    mInterstitialAd = null
                 }
 
                 override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                    Log.d(TAG, "Ad was loaded")
                     mInterstitialAd = interstitialAd
                 }
             })
+
 
         return (binding.root)
     }

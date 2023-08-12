@@ -4,6 +4,7 @@ plugins {
     id 'androidx.navigation.safeargs'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -22,7 +23,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            shrinkResources true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -54,17 +56,12 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.gms:play-services-ads-lite:22.2.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation platform('com.google.firebase:firebase-bom:32.2.2')
 
-//internet, location va permissionlar uchun// 
-    implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.google.android.gms:play-services-location:17.0.0'
-    implementation 'com.karumi:dexter:6.0.1'
-    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
-    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+    implementation 'com.google.android.gms:play-services-ads:22.2.0'
 
     implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
@@ -83,6 +80,6 @@ dependencies {
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
 
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
-    implementation 'com.google.android.gms:play-services-ads-base:22.2.0'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 }
